@@ -1,6 +1,6 @@
 # Activity 2 - Plan Your Form
 
-![Sample Form](./public/sample_form.png)
+![Sample Form](./public/sample-form.png)
 
 Take a moment to consider how you might design the rest of the form in code. Just from looking at the form, what components do you think you'll need?
 

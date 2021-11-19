@@ -4,12 +4,15 @@ We have a simple form rendering and all the state is stored in one place! That's
 
 But the aliens are very finicky about their form and insist that each field conforms to some precise requirements. Let's look at what they want:
 
-| Label | Input Type | Values | Validation Rules |
-| Species Name | <input type='text'> | - | Must be between 3 and 23 characters. No numbers or special characters allowed! |
-| Planet Name | <input type='text'> | - | Must be between 2 and 49 characters. Numbers are allowed, but no special characters. |
-| Number of beings | <input type='text'> | - | Numbers ONLY. Must be at least 1,000,000,000. |
-| What is 2 + 2 | <select> | two possible <option>: "4", "Not 4" | "4" must be selected. Selecting "Not 4" should display an error. |
-| Reason for sparing | <textarea> | - | Must be between 17 and 153 characters. |
+- **Species Name**: Must be between 3 and 23 characters. No numbers or special characters allowed!
+
+- **Planet Name**: Must be between 2 and 49 characters. Numbers are allowed, but no special characters.
+
+- **Number of beings**: Numbers ONLY. Must be at least 1,000,000,000.
+
+-  **What is 2 + 2**: "4" must be selected. Selecting "Not 4" should display an error.
+
+- **Reason for sparing**: Must be between 17 and 153 characters. 
 
 It's unclear how a species is supposed to make a case in just 17 characters, but I suppose those are the rules 🙃
 

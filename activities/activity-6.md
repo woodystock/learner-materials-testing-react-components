@@ -31,12 +31,18 @@ You can write tests for each component to ensure that:
 -   Add a test to each input component to test for no error message in the event of valid data
 -   Add (multiple if necessary) tests to each input component to test the validation logic for each type of rule break
 
-| Label | Input Type | Values | Validation Rules |
-| Species Name | <input type='text'> | - | Must be between 3 and 23 characters. No numbers or special characters allowed! |
-| Planet Name | <input type='text'> | - | Must be between 2 and 49 characters. Numbers are allowed, but no special characters. |
-| Number of beings | <input type='text'> | - | Numbers ONLY. Must be at least 1,000,000,000. |
-| What is 2 + 2 | <select> | two possible <option>: "4", "Not 4" | "4" must be selected. Selecting "Not 4" should display an error. |
-| Reason for sparing | <textarea> | - | Must be between 17 and 153 characters. |
+Reminder of the validation rules:
+
+- **Species Name**: Must be between 3 and 23 characters. No numbers or special characters allowed!
+
+- **Planet Name**: Must be between 2 and 49 characters. Numbers are allowed, but no special characters.
+
+- **Number of beings**: Numbers ONLY. Must be at least 1,000,000,000.
+
+-  **What is 2 + 2**: "4" must be selected. Selecting "Not 4" should display an error.
+
+- **Reason for sparing**: Must be between 17 and 153 characters. 
+
 
 Now if you run `npm test` you should get confirmation that all of your components are validating correctly in all possible circumstances. The Earth is saved! 🌍💃🕺🥳 Have a well-deserved break. ☕
 

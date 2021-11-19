@@ -6,12 +6,13 @@ The simplest version of this form does NO validation. So let's build that first.
 
 According to the aliens, each field should have a <label> and a corresponding tag for the input:
 
-| Label | Input Type | Values | Validation Rules |
-| Species Name | <input type='text'> | - | - |
-| Planet Name | <input type='text'> | - | - |
-| Number of beings | <input type='text'> | - | - |
-| What is 2 + 2 | <select> | two possible <option>: "4", "Not 4" | - |
-| Reason for sparing | <textarea> | - | - |
+| Label              | Input Type          | Values                              | 
+-------------------- | ------------------- | ----------------------------------- | 
+| Species Name       | <input type='text'> |                                     |
+| Planet Name        | <input type='text'> |                                     |
+| Number of beings   | <input type='text'> |                                     |
+| What is 2 + 2      | <select>            | two possible <option>: "4", "Not 4" |
+| Reason for sparing | <textarea>          |                                     |
 
 Remembering DRY (Don't Repeat Yourself) you might recognise that it's good design to share code when possible, but it's up to you to decide how to split these up into React components.
 
