@@ -6,7 +6,7 @@ Luckily, their species is _incredibly_ bureaucratic, and they've promised to spa
 
 Let's save humanity. 🌍
 
-ß## How to Get Started
+## How to Get Started
 
 This repo contains the beginnings of an app, based on create-react-app.
 

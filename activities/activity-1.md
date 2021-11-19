@@ -2,7 +2,7 @@
 
 The aliens have kindly presented humanity with a design for the W-12-M form:
 
-![Sample Form](./public/sample-form.png)
+![Sample Form](../public/sample-form.png)
 
 Unfortunately, _they never provided an actual web page to submit it_. That's where you come in!
 
@@ -27,7 +27,7 @@ Let's see if they've left us any tests.
 
 ** Run `npm test` and look at the output **
 
-![Sample Test Output](./public/sample-test-output.jpg)
+![Sample Test Output](../public/sample-test-output.jpg)
 
 Phew. These aliens might be about to destroy the Earth, but at least they've written tests for all their React components, so they're not _totally_ horrible!
 
