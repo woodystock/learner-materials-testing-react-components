@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:wght@500&display=swap');
 :root {
 	--light: #fdf8e5;
+	--default_font: 'Righteous', cursive;
+	--input_font: 'Roboto Mono', monospace;
 }
 
 body {
-	background-color: var(--light);
+	background-image: url("assets/stars.jpg");
 	font-family: Arial, Helvetica, sans-serif;
 	line-height: 1.5;
 	display: flex;
@@ -13,25 +14,49 @@ body {
 	margin: 0;
 }
 
+.uppercase {
+	text-transform: uppercase;
+}
+
 .form__container {
 	border: 5px solid black;
+	padding: 1.5em;
+	background-color: var(--light);
 
+}
+
+.form__heading {
+	font-family: var(--default_font);
+	color: var(--light);
+	box-shadow: 10px 5px 5px black;
 }
 
 .form__text {
-	font-family: 'Roboto Mono', monospace;
+	font-family: var(--default_font);
+	font-size: 1.5rem;
 }
 
 .form__label {
+	font-family: var(--default_font);
+	padding-right: 10px;
+	font-size: 1.7rem;
+}
 
+.form__input_container {
+	padding-bottom: 0.5em;
+	border-bottom: 2px solid black;
+	display: flex;
+	box-shadow: 10px 5px 5px black;
 }
 
 .form__input {
-
+	font-family: var(--input_font);
+	flex-grow: 1;
 }
 
 .form__input--text {
-
+	border: 2px solid black;
+	font-size: 1.5rem;
 }
 
 .form__input--dropdown {
