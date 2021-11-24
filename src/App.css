@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
 :root {
 	--light: #fdf8e5;
 }
@@ -10,3 +12,33 @@ body {
 	justify-content: center;
 	margin: 0;
 }
+
+.form__container {
+	border: 5px solid black;
+
+}
+
+.form__text {
+	font-family: 'Roboto Mono', monospace;
+}
+
+.form__label {
+
+}
+
+.form__input {
+
+}
+
+.form__input--text {
+
+}
+
+.form__input--dropdown {
+
+}
+
+.form__input--text_area {
+
+}
+

@@ -4,7 +4,7 @@ import W12MForm from './components/W12MForm';
 function App() {
 	return (
 		<>
-			<h1>W-12-M :- APPLICATION TO SPARE PLANET FROM DESTRUCTION</h1>
+			<h1 class="form__text">W-12-M :- APPLICATION TO SPARE PLANET FROM DESTRUCTION</h1>
 			<W12MForm />
 		</>
 	);
