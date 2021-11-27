@@ -3,6 +3,8 @@
 	--light: #fdf8e5;
 	--default_font: 'Righteous', cursive;
 	--input_font: 'Roboto Mono', monospace;
+	--invalid: #ff0000;
+	--highlight: rgb(19, 105, 94);
 }
 
 body {
@@ -21,6 +23,7 @@ body {
 .form__container {
 	border: 5px solid black;
 	padding: 1.5em;
+	margin: 1.5em;
 	background-color: var(--light);
 
 }
@@ -28,12 +31,16 @@ body {
 .form__heading {
 	font-family: var(--default_font);
 	color: var(--light);
-	box-shadow: 10px 5px 5px black;
+	text-align: center;
 }
 
 .form__text {
 	font-family: var(--default_font);
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+}
+
+.form__text--invalid {
+	color: var(--invalid)
 }
 
 .form__label {
@@ -42,11 +49,21 @@ body {
 	font-size: 1.7rem;
 }
 
-.form__input_container {
+.form__input-container {
+	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	border-bottom: 2px solid black;
 	display: flex;
-	box-shadow: 10px 5px 5px black;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.validated_input-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	min-width: 300px;
 }
 
 .form__input {
@@ -59,11 +76,33 @@ body {
 	font-size: 1.5rem;
 }
 
+.form__button {
+	font-family: var(--default_font);
+	font-size: 1.5rem;
+	padding: 1em;
+	width: 100%;
+	background-color: black;
+	color: white;
+}
+
+.form__button:hover {
+	background-color: var(--highlight);
+}
+
 .form__input--dropdown {
 
 }
 
-.form__input--text_area {
-
+.input__textarea {
+	resize: none;
 }
 
+@media only screen and (min-width: 800px) {
+    .form__input-container {
+        flex-direction: row;
+    }
+
+	.validated_input-container {
+		width: 60%;
+	}
+}

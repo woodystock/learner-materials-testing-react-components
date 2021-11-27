@@ -6,6 +6,14 @@ import SimpleCalcInput from './SimpleCalcInput';
 import SpeciesNameInput from './SpeciesNameInput';
 import W12MHeader from './W12MHeader';
 
+const formIdKeyValueLookup = {
+	species_name: "speciesName",
+	planet_name: "planetName",
+	beings_num: "numberOfBeings",
+	simple_calc: "simpleCalc",
+	reason: "reason"
+}
+
 const W12MForm = () => {
 
 	const [formData, setFormData] = useState({
@@ -16,11 +24,22 @@ const W12MForm = () => {
 		reason: ""
 	});
 
+	const onValueChange = (event) => {
+		const key = formIdKeyValueLookup[event.target.id];
+		if(Object.keys(formData).includes(key)) {
+			setFormData( prevFormData => {
+				const updatedFormData = {...prevFormData};
+				updatedFormData[key] = event.target.value;
+				return updatedFormData
+			});
+		}
+	}
+
 	return (
 		<section className='w12MForm form__container'>
-			<W12MHeader />
+			<W12MHeader/>
 			
-			<SpeciesNameInput />
+			<SpeciesNameInput speciesName={formData.speciesName} onChange={onValueChange}/>
 
 			<PlanetNameInput />
 
@@ -30,7 +49,7 @@ const W12MForm = () => {
 
 			<ReasonInput />
 
-			<button>Submit</button>
+			<button type="submit" class="form__button">Submit</button>
 
 		</section>
 	);

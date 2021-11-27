@@ -1,8 +1,12 @@
-function SpeciesNameInput() {
+function SpeciesNameInput({speciesName, onChange}) {
+
     return (
-        <div class="form__input_container">
+        <div class="form__input-container">
             <label for="species_name" class="form__label">Species Name:</label>
-            <input id="species_name" type="text" class="form__input form__input--text"/>
+            <div class="validated_input-container">
+                <input id="species_name" type="text" class="form__input form__input--text" value={speciesName} onChange={onChange}/>
+                <p class="form__text form__text--invalid">Invalid input</p>
+            </div>
         </div>
     )
 }
