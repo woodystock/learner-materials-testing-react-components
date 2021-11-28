@@ -24,8 +24,7 @@ const W12MForm = () => {
 		reason: ""
 	});
 
-	const onInputTextChange = (event) => {
-		console.log(event.target.value)
+	const onValueChange = (event) => {
 		const key = formIdKeyValueLookup[event.target.id];
 
 		if (Object.keys(formData).includes(key)) {
@@ -39,41 +38,25 @@ const W12MForm = () => {
 		}
 	}
 
-	const onSelectChange = (event) => {
-		const key = formIdKeyValueLookup[event.target.id];
-
-		if (Object.keys(formData).includes(key)) {
-			setFormData(prevFormData => {
-				const updatedFormData = { ...prevFormData };
-
-				updatedFormData[key] = event.target.text;
-
-				return updatedFormData
-			});
-		}
-	}
-
-	const onSubmitForm = (event) => {
-		event.preventDefault();
-
-		console.log();
+	const onSubmitClick = (event) => {
+		console.log(formData);
 	} 
 
 	return (
 		<section className='w12MForm form__container'>
 			<W12MHeader />
 
-			<SpeciesNameInput speciesName={formData.speciesName} onChange={onInputTextChange} />
+			<SpeciesNameInput speciesName={formData.speciesName} onChange={onValueChange} />
 
-			<PlanetNameInput planetName={formData.planetName} onChange={onInputTextChange} />
+			<PlanetNameInput planetName={formData.planetName} onChange={onValueChange} />
 
-			<NumberOfBeingsInput numberOfBeings={formData.numberOfBeings} onChange={onInputTextChange} />
+			<NumberOfBeingsInput numberOfBeings={formData.numberOfBeings} onChange={onValueChange} />
 
-			<SimpleCalcInput simpleCalc={formData.simpleCalc} onChange={onInputTextChange} />
+			<SimpleCalcInput simpleCalc={formData.simpleCalc} onChange={onValueChange} />
 
-			<ReasonInput reason={formData.reason} onChange={onInputTextChange} />
+			<ReasonInput reason={formData.reason} onChange={onValueChange} />
 
-			<button type="submit" class="form__button" onSubmit={onSubmitForm}>Submit</button>
+			<button type="submit" class="form__button" onClick={onSubmitClick}>Submit</button>
 
 		</section>
 	);
