@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { isValidElement, useState } from 'react';
 import NumberOfBeingsInput from './form-elements/NumberOfBeingsInput';
 import PlanetNameInput from './form-elements/PlanetNameInput';
 import ReasonInput from './form-elements/ReasonInput';
@@ -15,7 +15,7 @@ const formIdKeyValueLookup = {
 	reason: "reason"
 }
 
-const W12MForm = () => {
+const W12MForm = ({onFormSubmit}) => {
 
 	const [formData, setFormData] = useState({
 		speciesName: "",
@@ -41,23 +41,35 @@ const W12MForm = () => {
 
 	const onSubmitClick = (event) => {
 		console.log(formData);
-	} 
+	}
+
+	const onFormSubmitHandler = (event) => {
+		event.preventDefault();
+
+		//check if everything is valid?
+
+		onFormSubmit(formData);
+	}
 
 	return (
 		<section className='w12MForm form__container'>
 			<W12MHeader />
 
-			<SpeciesNameInput value={formData.speciesName} onChange={onValueChange} />
+			<form onSubmit={onFormSubmitHandler}>
 
-			<PlanetNameInput value={formData.planetName} onChange={onValueChange} />
+				<SpeciesNameInput value={formData.speciesName} onChange={onValueChange} />
 
-			<NumberOfBeingsInput value={formData.numberOfBeings} onChange={onValueChange} />
+				<PlanetNameInput value={formData.planetName} onChange={onValueChange} />
 
-			<SimpleCalcInput value={formData.simpleCalc} onChange={onValueChange} />
+				<NumberOfBeingsInput value={formData.numberOfBeings} onChange={onValueChange} />
 
-			<ReasonInput value={formData.reason} onChange={onValueChange} />
+				<SimpleCalcInput value={formData.simpleCalc} onChange={onValueChange} />
 
-			<SubmitFormContainer onSubmitClick={onSubmitClick} />
+				<ReasonInput value={formData.reason} onChange={onValueChange} />
+
+				<SubmitFormContainer onSubmitClick={onSubmitClick} />
+
+			</form>
 
 		</section>
 	);
