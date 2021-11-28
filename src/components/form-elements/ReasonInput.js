@@ -1,16 +1,16 @@
-function ReasonInput({reason, onChange}) {
+function ReasonInput({value, onChange}) {
     return (
-        <div class="form__input-container">
-            <label for="reason" class="form__label">Reason for Sparing:</label>
-            <div class="validated-input-container">
+        <div className="form__input-container">
+            <label htmlFor="reason" className="form__label">Reason for Sparing:</label>
+            <div className="validated-input-container">
                 <textarea 
                     id="reason" 
-                    class="form__input form__input--text input__textarea" 
+                    className="form__input form__input--text input__textarea" 
                     rows="4" 
-                    value={reason} 
+                    value={value} 
                     onChange={onChange}
                 />
-                <p class="form__text form__text--invalid" hidden>Invalid input</p>
+                <p className="form__text form__text--invalid" hidden>Invalid input</p>
             </div>
         </div>
     )

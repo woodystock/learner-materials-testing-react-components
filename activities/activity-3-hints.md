@@ -7,7 +7,7 @@ Here's an example React component for our SpeciesName:
 ```JavaScript
 const SpeciesName = () => ( 
     <div> 
-        <label for='speciesName'>Species Name</label> 
+        <label htmlFor='speciesName'>Species Name</label> 
         <input id='speciesName' type='text' value={speciesName} onChange={onChangeSpeciesName} /> 
     </div> );
 ```

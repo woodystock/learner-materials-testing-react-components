@@ -1,10 +1,10 @@
-function NumberOfBeingsInput({numberOfBeings, onChange}) {
+function NumberOfBeingsInput({value, onChange}) {
     return (
-        <div class="form__input-container">
-            <label for="beings_num" class="form__label">Number of Beings:</label>
-            <div class="validated-input-container">
-                <input id="beings_num" type="text" class="form__input form__input--text" value={numberOfBeings} onChange={onChange}/>
-                <p class="form__text form__text--invalid" hidden>Invalid input</p>
+        <div className="form__input-container">
+            <label htmlFor="beings_num" className="form__label">Number of Beings:</label>
+            <div className="validated-input-container">
+                <input id="beings_num" type="text" className="form__input form__input--text" value={value} onChange={onChange}/>
+                <p className="form__text form__text--invalid" hidden>Invalid input</p>
             </div>
         </div>
     )

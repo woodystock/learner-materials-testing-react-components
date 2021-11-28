@@ -46,17 +46,17 @@ const W12MForm = () => {
 		<section className='w12MForm form__container'>
 			<W12MHeader />
 
-			<SpeciesNameInput speciesName={formData.speciesName} onChange={onValueChange} />
+			<SpeciesNameInput value={formData.speciesName} onChange={onValueChange} />
 
-			<PlanetNameInput planetName={formData.planetName} onChange={onValueChange} />
+			<PlanetNameInput value={formData.planetName} onChange={onValueChange} />
 
-			<NumberOfBeingsInput numberOfBeings={formData.numberOfBeings} onChange={onValueChange} />
+			<NumberOfBeingsInput value={formData.numberOfBeings} onChange={onValueChange} />
 
-			<SimpleCalcInput simpleCalc={formData.simpleCalc} onChange={onValueChange} />
+			<SimpleCalcInput value={formData.simpleCalc} onChange={onValueChange} />
 
-			<ReasonInput reason={formData.reason} onChange={onValueChange} />
+			<ReasonInput value={formData.reason} onChange={onValueChange} />
 
-			<button type="submit" class="form__button" onClick={onSubmitClick}>Submit</button>
+			<button type="submit" className="form__button" onClick={onSubmitClick}>Submit</button>
 
 		</section>
 	);

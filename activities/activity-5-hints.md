@@ -5,7 +5,7 @@ Let's imagine our Species Name field works like this:
 ```JavaScript
 	const SpeciesName = ({ speciesName, onChangeSpeciesName }) => ( 
 		<div> 
-			<label for='speciesName'>Species Name</label> 
+			<label htmlFor='speciesName'>Species Name</label> 
 			<input id='speciesName' type='text' value={speciesName} onChange={onChangeSpeciesName} /> 
 		</div> 
 	);
@@ -16,7 +16,7 @@ We need to add validation. So first, let's intercept the onChange event:
 ```JavaScript
 	const SpeciesName = ({ speciesName, onChangeSpeciesName }) => ( 
 		<div> 
-			<label for='speciesName'>Species Name</label> 
+			<label htmlFor='speciesName'>Species Name</label> 
 			<input id='speciesName' type='text' value={speciesName} 
 					onChange={(e) => { onChangeSpeciesName(e); } } /> 
 		</div> 
@@ -29,7 +29,7 @@ We need to add validation. So first, let's intercept the onChange event:
 ```JavaScript
 	const SpeciesName = ({ speciesName, onChangeSpeciesName }) => ( 
 		<div> 
-			<label for='speciesName'>Species Name</label> 
+			<label htmlFor='speciesName'>Species Name</label> 
 			<input id='speciesName' type='text' value={speciesName} 
 					onChange={(e) => { // extra logic goes here!
 										onChangeSpeciesName(e); } } /> 
@@ -48,7 +48,7 @@ We need a validation function:
 
 		return(
 		<div>
-			<label for='speciesName'>Species Name</label>
+			<label htmlFor='speciesName'>Species Name</label>
 			<input
 				id='speciesName'
 				type='text'
@@ -79,7 +79,7 @@ And to store the result in state:
 
 		return(
 		<div>
-			<label for='speciesName'>Species Name</label>
+			<label htmlFor='speciesName'>Species Name</label>
 			<input
 				id='speciesName'
 				type='text'
@@ -115,7 +115,7 @@ Finally, we need to add an `<ErrorMessage>` component to the project, which take
 
 		return(
 		<div>
-			<label for='speciesName'>Species Name</label>
+			<label htmlFor='speciesName'>Species Name</label>
 			<input
 				id='speciesName'
 				type='text'

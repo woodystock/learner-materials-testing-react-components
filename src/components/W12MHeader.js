@@ -1,5 +1,5 @@
 const W12MHeader = () => (
-	<ul class="form__text">
+	<ul className="form__text">
 		<li>Each species may only submit ONE W-12-M form.</li>
 		<li>
 			Any mistakes will guarantee rejection and your planet will NOT be
