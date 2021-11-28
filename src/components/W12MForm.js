@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import NumberOfBeingsInput from './NumberOfBeingsInput';
-import PlanetNameInput from './PlanetNameInput';
-import ReasonInput from './ReasonInput';
-import SimpleCalcInput from './SimpleCalcInput';
-import SpeciesNameInput from './SpeciesNameInput';
+import NumberOfBeingsInput from './form-elements/NumberOfBeingsInput';
+import PlanetNameInput from './form-elements/PlanetNameInput';
+import ReasonInput from './form-elements/ReasonInput';
+import SimpleCalcInput from './form-elements/SimpleCalcInput'
+import SpeciesNameInput from './form-elements/SpeciesNameInput';
 import W12MHeader from './W12MHeader';
 
 const formIdKeyValueLookup = {

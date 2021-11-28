@@ -10,7 +10,7 @@ function ReasonInput({reason, onChange}) {
                     value={reason} 
                     onChange={onChange}
                 />
-                <p class="form__text form__text--invalid">Invalid input</p>
+                <p class="form__text form__text--invalid" hidden>Invalid input</p>
             </div>
         </div>
     )
