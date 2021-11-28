@@ -3,12 +3,25 @@ import ErrorMessage from "./ErrorMessage";
 
 function SpeciesNameInput({value, onChange}) {
 
+    const specialCharCheck = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const numberCheck = /\d/;
+
     const [errorMessage, setErrorMessage] = useState("");
 
     const validate = (input) => {
-        if(input !== "")
-            return "No input allowed"
-        else return "";
+        let message = [];
+        if(input === "")
+            return "";
+        if(input.length < 3)
+            message.push("Must contain more than 3 letters");
+        else if(input.length > 23)
+            message.push("Must contain less than 23 letters");
+        if(specialCharCheck.test(input))
+            message.push("Cannot contain special characters")
+        if(numberCheck.test(input))
+            message.push("Cannot contain numbers")
+
+        return message.join(", ")
     }
 
     const onChangeHandler = (event) => {

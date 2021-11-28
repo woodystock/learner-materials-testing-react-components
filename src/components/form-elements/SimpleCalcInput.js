@@ -6,9 +6,14 @@ function SimpleCalcInput({value, onChange}) {
     const [errorMessage, setErrorMessage] = useState("");
 
     const validate = (input) => {
-        if(input !== "")
-            return "No input allowed"
-        else return "";
+        const message = [];
+        if(input == "")
+            return ""
+        
+        if(input === "Not 4")
+            message.push("Incorrect answer")
+
+        return message.join(", ");
     }
 
     const onChangeHandler = (event) => {

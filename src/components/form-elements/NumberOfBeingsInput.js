@@ -6,9 +6,21 @@ function NumberOfBeingsInput({value, onChange}) {
     const [errorMessage, setErrorMessage] = useState("");
 
     const validate = (input) => {
-        if(input !== "")
-            return "No input allowed"
-        else return "";
+        
+        const numbersOnlyCheck = /^\d*$/;
+        
+        const message = [];
+
+        if(input === "")
+            return "";
+        if(! numbersOnlyCheck.test(input))
+            message.push("Numbers Only")
+        else if( Number(input) < 1000000000)
+            message.push("Must be at least 1,000,000,000")
+            
+        
+
+        return message.join(", ")
     }
 
     const onChangeHandler = (event) => {

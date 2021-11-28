@@ -36,3 +36,23 @@ test('change values in number of being input', () => {
 
 	expect( mockOnChange ).toBeCalledTimes(1);
 })
+
+test('validates the input with the following: Must be between 3 and 23 characters. No numbers or special characters allowed!', () => {
+	const mockOnChange = jest.fn();
+	
+	render(<NumberOfBeingsInput value="" onChange={mockOnChange}/>)
+
+	const input = screen.getByRole("textbox");
+
+	fireEvent.change(input, {target: {value: "abc"}})
+
+	const invalidNumbers = screen.getByText("Numbers Only")
+
+	expect(invalidNumbers).toBeInTheDocument();
+
+	fireEvent.change(input, {target: {value: "100"}})
+
+	const invalidAmount = screen.getByText("Must be at least 1,000,000,000");
+
+	expect(invalidAmount).toBeInTheDocument();
+})

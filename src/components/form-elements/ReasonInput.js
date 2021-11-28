@@ -6,9 +6,15 @@ function ReasonInput({value, onChange}) {
     const [errorMessage, setErrorMessage] = useState("");
 
     const validate = (input) => {
-        if(input !== "")
-            return "No input allowed"
-        else return "";
+        if(input === "")
+            return ""
+        
+        if(input.length < 17)
+            return "Must be more than 17 characters"
+        else if( input.length > 153)
+            return "Must be less than 153 characters"
+
+        return "";
     }
 
     const onChangeHandler = (event) => {
@@ -24,7 +30,7 @@ function ReasonInput({value, onChange}) {
                 <textarea 
                     id="reason" 
                     className="form__input form__input--text input__textarea" 
-                    rows="4" 
+                    rows="5" 
                     value={value} 
                     onChange={onChangeHandler}
                 />

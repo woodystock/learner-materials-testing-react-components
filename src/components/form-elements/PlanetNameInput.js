@@ -3,12 +3,22 @@ import ErrorMessage from "./ErrorMessage";
 
 function PlanetNameInput({value, onChange}) {
 
+    const specialCharCheck = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    
     const [errorMessage, setErrorMessage] = useState("");
 
     const validate = (input) => {
-        if(input !== "")
-            return "No input allowed"
-        else return "";
+        let message = [];
+        if(input === "")
+            return "";
+        if(input.length < 2)
+            message.push("Must contain more than 2 letters");
+        else if(input.length > 49)
+            message.push("Must contain less than 49 letters");
+        if(specialCharCheck.test(input))
+            message.push("Cannot contain special characters")
+
+        return message.join(", ")
     }
 
     const onChangeHandler = (event) => {
