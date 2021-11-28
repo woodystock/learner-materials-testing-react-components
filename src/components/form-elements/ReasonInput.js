@@ -1,4 +1,22 @@
+import { useState } from "react";
+import ErrorMessage from "./ErrorMessage";
+
 function ReasonInput({value, onChange}) {
+
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const validate = (input) => {
+        if(input !== "")
+            return "No input allowed"
+        else return "";
+    }
+
+    const onChangeHandler = (event) => {
+        const validateMessage = validate(event.target.value);
+        setErrorMessage(validateMessage);
+        onChange(event);
+    }
+    
     return (
         <div className="form__input-container">
             <label htmlFor="reason" className="form__label">Reason for Sparing:</label>
@@ -8,9 +26,9 @@ function ReasonInput({value, onChange}) {
                     className="form__input form__input--text input__textarea" 
                     rows="4" 
                     value={value} 
-                    onChange={onChange}
+                    onChange={onChangeHandler}
                 />
-                <p className="form__text form__text--invalid" hidden>Invalid input</p>
+                <ErrorMessage errorMessage={errorMessage} />
             </div>
         </div>
     )

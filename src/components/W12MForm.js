@@ -4,6 +4,7 @@ import PlanetNameInput from './form-elements/PlanetNameInput';
 import ReasonInput from './form-elements/ReasonInput';
 import SimpleCalcInput from './form-elements/SimpleCalcInput'
 import SpeciesNameInput from './form-elements/SpeciesNameInput';
+import SubmitFormContainer from './form-elements/SubmitFormContainer';
 import W12MHeader from './W12MHeader';
 
 const formIdKeyValueLookup = {
@@ -56,7 +57,7 @@ const W12MForm = () => {
 
 			<ReasonInput value={formData.reason} onChange={onValueChange} />
 
-			<button type="submit" className="form__button" onClick={onSubmitClick}>Submit</button>
+			<SubmitFormContainer onSubmitClick={onSubmitClick} />
 
 		</section>
 	);
