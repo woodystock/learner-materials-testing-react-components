@@ -36,3 +36,17 @@ test('change values in simple calc input', () => {
 
 	expect( mockOnChange ).toBeCalledTimes(1);
 })
+
+test("validates input with the following rules: '4' must be selected. Selecting 'Not 4' should display an error.", () => {
+	const mockOnChange = jest.fn();
+
+	render(<SimpleCalcInput value="" onChange={mockOnChange}/>)
+
+	const input = screen.getByRole("combobox");
+
+	fireEvent.change(input, {target: {value: "Not 4"}})
+
+	const invalid = screen.getByText("Incorrect answer");
+
+	expect(invalid).toBeInTheDocument();
+});

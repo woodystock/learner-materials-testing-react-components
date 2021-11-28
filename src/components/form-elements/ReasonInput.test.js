@@ -36,3 +36,27 @@ test('change values in reason input', () => {
 
 	expect( mockOnChange ).toBeCalledTimes(1);
 })
+
+test("validates input with the following rules: Must be between 17 and 153 characters.", () => {
+	const mockOnChange = jest.fn();
+
+	render(<ReasonInput value="" onChange={mockOnChange}/>)
+
+	const input = screen.getByRole("textbox");
+
+	fireEvent.change(input, {target: {value: "not enough"}})
+
+	let invalid = screen.getByText("Must be more than 17 characters")
+
+	expect(invalid).toBeInTheDocument();
+
+	let longString = ""
+	for( let i = 0; i <= 153; ++i)
+		longString += "a";
+
+	fireEvent.change(input, {target: {value: longString}});
+
+	invalid = screen.getByText("Must be less than 153 characters");
+
+	expect(invalid).toBeInTheDocument();
+});
