@@ -10,7 +10,7 @@ const formIdKeyValueLookup = {
 	species_name: "speciesName",
 	planet_name: "planetName",
 	beings_num: "numberOfBeings",
-	simple_calc: "simpleCalc",
+	simple_calc_select: "simpleCalc",
 	reason: "reason"
 }
 
@@ -20,36 +20,60 @@ const W12MForm = () => {
 		speciesName: "",
 		planetName: "",
 		numberOfBeings: "",
-		SimpleCalc: false,
+		simpleCalc: "",
 		reason: ""
 	});
 
-	const onValueChange = (event) => {
+	const onInputTextChange = (event) => {
+		console.log(event.target.value)
 		const key = formIdKeyValueLookup[event.target.id];
-		if(Object.keys(formData).includes(key)) {
-			setFormData( prevFormData => {
-				const updatedFormData = {...prevFormData};
+
+		if (Object.keys(formData).includes(key)) {
+			setFormData(prevFormData => {
+				const updatedFormData = { ...prevFormData };
+
 				updatedFormData[key] = event.target.value;
+
 				return updatedFormData
 			});
 		}
 	}
 
+	const onSelectChange = (event) => {
+		const key = formIdKeyValueLookup[event.target.id];
+
+		if (Object.keys(formData).includes(key)) {
+			setFormData(prevFormData => {
+				const updatedFormData = { ...prevFormData };
+
+				updatedFormData[key] = event.target.text;
+
+				return updatedFormData
+			});
+		}
+	}
+
+	const onSubmitForm = (event) => {
+		event.preventDefault();
+
+		console.log();
+	} 
+
 	return (
 		<section className='w12MForm form__container'>
-			<W12MHeader/>
-			
-			<SpeciesNameInput speciesName={formData.speciesName} onChange={onValueChange}/>
+			<W12MHeader />
 
-			<PlanetNameInput />
+			<SpeciesNameInput speciesName={formData.speciesName} onChange={onInputTextChange} />
 
-			<NumberOfBeingsInput />
+			<PlanetNameInput planetName={formData.planetName} onChange={onInputTextChange} />
 
-			<SimpleCalcInput />
+			<NumberOfBeingsInput numberOfBeings={formData.numberOfBeings} onChange={onInputTextChange} />
 
-			<ReasonInput />
+			<SimpleCalcInput simpleCalc={formData.simpleCalc} onChange={onInputTextChange} />
 
-			<button type="submit" class="form__button">Submit</button>
+			<ReasonInput reason={formData.reason} onChange={onInputTextChange} />
+
+			<button type="submit" class="form__button" onSubmit={onSubmitForm}>Submit</button>
 
 		</section>
 	);
