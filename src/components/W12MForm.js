@@ -1,17 +1,16 @@
-import { isValidElement, useState } from 'react';
-import NumberOfBeingsInput from './form-elements/NumberOfBeingsInput';
-import PlanetNameInput from './form-elements/PlanetNameInput';
-import ReasonInput from './form-elements/ReasonInput';
-import SimpleCalcInput from './form-elements/SimpleCalcInput'
-import SpeciesNameInput from './form-elements/SpeciesNameInput';
-import SubmitFormContainer from './form-elements/SubmitFormContainer';
+import { useState } from 'react';
+import { validateNumberOfBeings, validatePlanetName, validateReason, validateSimpleCalc, validateSpeciesName } from './W12MFormValidation'
+import SubmitFormContainer from './SubmitFormContainer';
+import W12MFormInput from './W12MFormInput';
+import W12FormInputType from './W12MFormInputType';
 import W12MHeader from './W12MHeader';
+
 
 const formIdKeyValueLookup = {
 	species_name: "speciesName",
 	planet_name: "planetName",
 	beings_num: "numberOfBeings",
-	simple_calc_select: "simpleCalc",
+	simple_calc: "simpleCalc",
 	reason: "reason"
 }
 
@@ -57,15 +56,52 @@ const W12MForm = ({onFormSubmit}) => {
 
 			<form onSubmit={onFormSubmitHandler}>
 
-				<SpeciesNameInput value={formData.speciesName} onChange={onValueChange} />
+				<W12MFormInput 
+					id="species_name"
+					label="Species Name:"
+					type={W12FormInputType.TEXT}
+					value={formData.speciesName}
+					onChange={onValueChange}
+					validate={validateSpeciesName}
+				/>
 
-				<PlanetNameInput value={formData.planetName} onChange={onValueChange} />
+				<W12MFormInput
+					id="planet_name"
+					label="Planet Name:"
+					type={W12FormInputType.TEXT}
+					value={formData.planetName}
+					onChange={onValueChange}
+					validate={validatePlanetName}
+				/>
 
-				<NumberOfBeingsInput value={formData.numberOfBeings} onChange={onValueChange} />
+				<W12MFormInput
+					id="beings_num"
+					label="Number of Beings:"
+					type={W12FormInputType.TEXT}
+					value={formData.numberOfBeings}
+					onChange={onValueChange}
+					validate={validateNumberOfBeings}
+				/>
 
-				<SimpleCalcInput value={formData.simpleCalc} onChange={onValueChange} />
+				<W12MFormInput
+					id="simple_calc"
+					label="What is 2 + 2?"
+					type={W12FormInputType.SELECT}
+					typeOptions="4,Not 4"
+					value={formData.simpleCalc}
+					onChange={onValueChange}
+					validate={validateSimpleCalc}
+				/>
 
-				<ReasonInput value={formData.reason} onChange={onValueChange} />
+				<W12MFormInput
+					id="reason"
+					label="Reason for sparing:"
+					type={W12FormInputType.TEXTAREA}
+					typeOptions="5"
+					value={formData.reason}
+					onChange={onValueChange}
+					validate={validateReason}
+				/>
 
 				<SubmitFormContainer onSubmitClick={onSubmitClick} />
 
